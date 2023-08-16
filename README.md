@@ -11,3 +11,4 @@
 ### rfmodel.pkl is the randomforest model
 
 # hosted Link :  http://customerchurn.pythonanywhere.com/
+### sign up using username email and password then login using username and password to use our app
