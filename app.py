@@ -91,36 +91,7 @@ def predict():
         gender = request.form['gender']
         complain = int(request.form['complain'])
         avg=cashback/ordercount
-        if logindevice==1:
-              logindevice='Mobile Phone'
-        else:
-              logindevice='Laptop'
-        if gender==1:
-              gender="Male"
-        else:
-              gender="Female"
-        if citytier==1:
-              citytier="Tier 1"
-        elif citytier==2:
-              citytier="Tier 2"
-        else:
-              citytier="Tier 3"
-        if complain==1:
-              complain="Yes"
-        else:
-              complain="No"
-        if maritalstatus==0:
-              maritalstatus="Divorced"
-        elif maritalstatus==1:
-              maritalstatus="Married"
-        else:
-              maritalstatus="Single"
-        if paymentmode=="DC":
-              paymentmode="Debit Card"
-        elif paymentmode=="CC":
-              paymentmode="Credit Card"
-        elif paymentmode=="COD":
-              paymentmode="Cash On Delivery"
+        
 
     
        
@@ -130,6 +101,36 @@ def predict():
           pred='Will Churn'
     else:
           pred='Will Not Churn'
+    if logindevice==1:
+              logindevice='Mobile Phone'
+    else:
+	    logindevice='Laptop'
+    if gender==1:
+	    gender="Male"
+     else:
+	     gender="Female"
+     if citytier==1:
+	     citytier="Tier 1"
+     elif citytier==2:
+              citytier="Tier 2"
+    else:
+              citytier="Tier 3"
+    if complain==1:
+              complain="Yes"
+    else:
+              complain="No"
+    if maritalstatus==0:
+              maritalstatus="Divorced"
+    elif maritalstatus==1:
+              maritalstatus="Married"
+    else:
+              maritalstatus="Single"
+     if paymentmode=="DC":
+              paymentmode="Debit Card"
+     elif paymentmode=="CC":
+              paymentmode="Credit Card"
+     elif paymentmode=="COD":
+              paymentmode="Cash On Delivery"
     cursor.execute('INSERT INTO prediction VALUES (NULL, % s, % s, % s, % s, % s, % s, % s, % s, % s, % s, % s, % s,%s,%s,%s,%s)', (tenure,logindevice,citytier,warehouse,gender,numdevice,score,maritalstatus,numaddress,complain,lastorder,cashback,avg,paymentmode,ordercat,pred))
     mysql.connection.commit()
     return render_template('churnpred.html', prediction=prediction,display="none",display_a="block")
